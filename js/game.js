@@ -4,10 +4,16 @@ export default class Game {
 
     constructor() {
 
-        this.canvas = document.getElementById("gameCanvas");
-        this.ctx = this.canvas.getContext("2d");
-        this.renderer = new Renderer(this.canvas);
-        this.input = new Input();
+      this.canvas = document.getElementById("gameCanvas");
+this.ctx = this.canvas.getContext("2d");
+
+
+this.width = window.innerWidth;
+this.height = window.innerHeight;
+
+
+this.renderer = new Renderer(this.canvas);
+this.input = new Input();
 
 
 this.player = {
@@ -15,10 +21,6 @@ this.player = {
     y: this.height / 2,
     size: 50
 };
-
-        this.width = window.innerWidth;
-        this.height = window.innerHeight;
-
         this.lastTime = 0;
         this.running = false;
 
