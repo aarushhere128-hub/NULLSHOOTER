@@ -107,27 +107,4 @@ this.player = {
 
 }
 
-
-        // Temporary test drawing
-        // Remove later when renderer.js exists
-
-        this.ctx.fillStyle = "#111";
-        this.ctx.fillRect(
-            0,
-            0,
-            this.width,
-            this.height
-        );
-
-
-        this.ctx.fillStyle = "#00ff88";
-        this.ctx.fillRect(
-            this.width / 2 - 25,
-            this.height / 2 - 25,
-            50,
-            50
-        );
-
-    }
-
 }
