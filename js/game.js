@@ -1,4 +1,6 @@
 import Renderer from "./renderer.js";
+import Renderer from "./renderer.js";
+import Player from "./player.js";
 import Input from "./input.js";
 export default class Game {
 
@@ -15,12 +17,10 @@ this.height = window.innerHeight;
 this.renderer = new Renderer(this.canvas);
 this.input = new Input();
 
-
-this.player = {
-    x: this.width / 2,
-    y: this.height / 2,
-    size: 50
-};
+this.player = new Player(
+    this.width / 2,
+    this.height / 2
+);
         this.lastTime = 0;
         this.running = false;
 
@@ -76,27 +76,9 @@ this.player = {
 
     }
 
+update(deltaTime) {
 
-    update(deltaTime) {
-
-    const speed = 5;
-
-
-    if (this.input.isDown("w")) {
-        this.player.y -= speed;
-    }
-
-    if (this.input.isDown("s")) {
-        this.player.y += speed;
-    }
-
-    if (this.input.isDown("a")) {
-        this.player.x -= speed;
-    }
-
-    if (this.input.isDown("d")) {
-        this.player.x += speed;
-    }
+    this.player.update(this.input);
 
 }
 
