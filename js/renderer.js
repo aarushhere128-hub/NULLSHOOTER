@@ -36,6 +36,8 @@ export default class Renderer {
 
     drawPlayer(player) {
 
+        console.log(player);
+
         this.ctx.fillStyle = "#00ff88";
 
         this.ctx.fillRect(
@@ -55,10 +57,10 @@ export default class Renderer {
         this.drawBackground();
 
 
-        // Draw game objects here later
-
         if (gameState.player) {
+
             this.drawPlayer(gameState.player);
+
         }
 
     }
