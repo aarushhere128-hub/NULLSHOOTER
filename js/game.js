@@ -1,9 +1,18 @@
+import Renderer from "./renderer.js";
 export default class Game {
 
     constructor() {
 
         this.canvas = document.getElementById("gameCanvas");
         this.ctx = this.canvas.getContext("2d");
+        this.renderer = new Renderer(this.canvas);
+
+
+this.player = {
+    x: this.width / 2,
+    y: this.height / 2,
+    size: 50
+};
 
         this.width = window.innerWidth;
         this.height = window.innerHeight;
@@ -75,16 +84,13 @@ export default class Game {
     }
 
 
-    render() {
+   render() {
 
-        // Clear previous frame
+    this.renderer.render({
+        player: this.player
+    });
 
-        this.ctx.clearRect(
-            0,
-            0,
-            this.width,
-            this.height
-        );
+}
 
 
         // Temporary test drawing
