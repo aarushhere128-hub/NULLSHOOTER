@@ -1,4 +1,5 @@
 import Renderer from "./renderer.js";
+import Input from "./input.js";
 export default class Game {
 
     constructor() {
@@ -6,6 +7,7 @@ export default class Game {
         this.canvas = document.getElementById("gameCanvas");
         this.ctx = this.canvas.getContext("2d");
         this.renderer = new Renderer(this.canvas);
+        this.input = new Input();
 
 
 this.player = {
@@ -75,13 +77,26 @@ this.player = {
 
     update(deltaTime) {
 
-        // Game logic goes here later
-        // Player movement
-        // Enemy AI
-        // Bullets
-        // Collision
+    const speed = 5;
 
+
+    if (this.input.isDown("w")) {
+        this.player.y -= speed;
     }
+
+    if (this.input.isDown("s")) {
+        this.player.y += speed;
+    }
+
+    if (this.input.isDown("a")) {
+        this.player.x -= speed;
+    }
+
+    if (this.input.isDown("d")) {
+        this.player.x += speed;
+    }
+
+}
 
 
    render() {
